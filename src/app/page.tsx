@@ -1,4 +1,5 @@
-
+import { useState } from "react";
+import { useEffect } from "react";
 "use client";
 
 export default function AuditPage() {
@@ -52,3 +53,51 @@ export default function AuditPage() {
     </main>
   );
 }
+type ToolSpend = {
+  tool: string;
+  plan: string;
+  monthlySpend: string;
+  seats: string;
+};
+
+const [tools, setTools] = useState<ToolSpend[]>([
+  {
+    tool: "",
+    plan: "",
+    monthlySpend: "",
+    seats: "",
+  },
+]);
+
+<button
+  type="button"
+  onClick={() =>
+    setTools([
+      ...tools,
+      {
+        tool: "",
+        plan: "",
+        monthlySpend: "",
+        seats: "",
+      },
+    ])
+  }
+  className="border px-4 py-2 rounded"
+>
+  Add tool
+</button>
+
+useEffect(() => {
+  localStorage.setItem("tools", JSON.stringify(tools));
+}, [tools]);
+
+useEffect(() => {
+  const saved = localStorage.getItem("tools");
+  if (saved) {
+    setTools(JSON.parse(saved));
+  }
+}, []);
+
+useEffect(() => {
+  localStorage.setItem("audit-tools", JSON.stringify(tools));
+}, [tools]);
