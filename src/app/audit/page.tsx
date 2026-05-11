@@ -28,23 +28,23 @@ export default function AuditPage() {
     router.push("/results");
   };
 
- useEffect(() => {
-  const saved = localStorage.getItem("audit-tools");
+  useEffect(() => {
+    const saved = localStorage.getItem("audit-tools");
   
-  if (saved) {
-    setTools(JSON.parse(saved));
-  }
- }, []);
- const savedTeamSize = localStorage.getItem("audit-team-size");
- const savedUseCase = localStorage.getItem("audit-primary-use-case");
-
- if (savedTeamSize) {
-  setTeamSize(savedTeamSize);
- }
-
- if (savedUseCase) {
-  setPrimaryUseCase(savedUseCase);
- }
+    if (saved) {
+     setTools(JSON.parse(saved));
+    }
+   const savedTeamSize = localStorage.getItem("audit-team-size");
+   const savedUseCase = localStorage.getItem("audit-primary-use-case");
+    if (savedTeamSize) {
+     setTeamSize(savedTeamSize);
+    } 
+  
+    if (savedUseCase) {
+     setPrimaryUseCase(savedUseCase);
+    }
+  
+  }, []);
 
 
  useEffect(() => {
@@ -147,12 +147,12 @@ export default function AuditPage() {
           className="border px-4 py-2 rounded bg-white text-black"
         >
           Add tool
-          <button
-           type="submit"
-           className="border px-4 py-2 rounded bg-white text-black"
-          >
-           Continue
-          </button>
+        </button>
+        <button
+         type="submit"
+         className="border px-4 py-2 rounded bg-white text-black"
+        >
+          Continue
         </button>
       </form>
     </main>
