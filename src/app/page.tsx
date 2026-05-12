@@ -1,15 +1,35 @@
 "use client";
 
-export default function AuditPage() {
-  return (
-    <main className="p-8">
-      <h1 className="text-3xl font-bold">Audit Form</h1>
+import { useState } from "react";
 
+export default function AuditForm() {
+  const [input, setInput] = useState("");
+
+  const handleSubmit = async () => {
+    console.log("Button clicked"); // 👈 PUT IT HERE
+
+    console.log("Input value:", input);
+
+    const res = await fetch("/api/audit", {
+      method: "POST",
+      body: JSON.stringify({ input }),
+    });
+
+    const data = await res.json();
+    console.log("Response:", data);
+  };
+
+  return (
+    <div>
       <input
-        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
         placeholder="Test input"
-        className="border p-2 mt-4 bg-white text-black"
       />
-    </main>
+
+      <button onClick={handleSubmit}>
+        Run Audit
+      </button>
+    </div>
   );
 }
