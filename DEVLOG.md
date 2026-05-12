@@ -14,3 +14,12 @@ Completed today:
 - GitHub repo created
 - Vercel deployment completed
 - Started pricing research for AI subscription audit
+
+## Day 2
+
+Completed:
+
+- Built spend input form
+- Added dynamic tool rows
+- Added localStorage persistence
+- Added results page routing
