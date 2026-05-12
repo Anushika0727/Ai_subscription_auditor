@@ -23,3 +23,23 @@ Completed:
 - Added dynamic tool rows
 - Added localStorage persistence
 - Added results page routing
+
+## Day 3
+
+Completed:
+
+- Built initial audit engine
+- Added savings calculations
+- Added recommendation logic
+- Started audit result UI
+- Added initial tests
+
+## Day 4
+
+Completed:
+
+- Connected audit flow end-to-end
+- Added Supabase storage
+- Implemented shareable audit URLs
+- Added public audit view
+- Started documentation files

@@ -1,3 +1,5 @@
+"use client";
+
 import { mockTools } from "@/lib/mock-tools"
 import {
   runAudit,
@@ -116,10 +118,102 @@ export default function ResultsPage() {
       )}
 
      </div>
+      <div className="border rounded-2xl p-8">
+
+          <h2 className="text-2xl font-bold mb-6">
+            Save Your Audit
+          </h2>
+
+         <form
+            className="space-y-4"
+            onSubmit={async (e) => {
+
+              e.preventDefault();
+
+              const formData = new FormData(e.currentTarget);
+
+              const payload = {
+                email: formData.get("email"),
+                company: formData.get("company"),
+                role: formData.get("role"),
+                teamSize: formData.get("teamSize"),
+                website: formData.get("website"),
+
+                monthlySavings,
+                annualSavings,
+
+                auditInput: mockTools,
+                auditOutput: recommendations,
+              };
+
+              const response = await fetch(
+                "/api/audit/save",
+                {
+                   method: "POST",
+                   headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(payload),
+               }
+             );
+
+             const result = await response.json();
+
+             console.log(result);
+           }}
+          >
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Work email"
+              required
+              className="w-full border p-3 rounded"
+            />
+
+            <input
+              type="text"
+              name="company"
+              placeholder="Company (optional)"
+              className="w-full border p-3 rounded"
+            />
+
+            <input
+              type="text"
+              name="role"
+              placeholder="Role (optional)"
+              className="w-full border p-3 rounded"
+            />
+
+            <input
+              type="text"
+              name="teamSize"
+              placeholder="Team size (optional)"
+              className="w-full border p-3 rounded"
+            />
+
+            {/* Honeypot */}
+            <input
+              type="text"
+              name="website"
+              className="hidden"
+              tabIndex={-1}
+              autoComplete="off"
+            />
+
+            <button
+              type="submit"
+              className="bg-black text-white px-6 py-3 rounded-xl"
+            >
+              Save Audit
+            </button>
+
+          </form>
+
+        </div>
 
      </div>
 
     </main>
   )
 }
-
