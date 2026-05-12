@@ -34,3 +34,35 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+# AI Subscription Auditor
+
+A SaaS MVP that analyzes overlapping AI subscriptions
+and estimates potential cost savings.
+
+## Features
+
+- AI subscription audit engine
+- Savings recommendations
+- Public shareable audit URLs
+- Lead capture flow
+- Supabase backend storage
+- Honeypot abuse protection
+
+## Tech Stack
+
+- Next.js 16
+- TypeScript
+- Tailwind CSS
+- Supabase
+
+## Local Setup
+
+npm install
+npm run dev
+
+## Environment Variables
+
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
