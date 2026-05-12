@@ -66,3 +66,6 @@ npm run dev
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 SUPABASE_SERVICE_ROLE_KEY=
+
+## Live Demo
+https://ai-subscription-auditor-eb0nmde1n-anushika0727s-projects.vercel.app/
